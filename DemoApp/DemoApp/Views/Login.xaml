@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DemoApp.Login" BackgroundImage="bg1.png">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center">
+            <ContentView.Resources>
+                <ResourceDictionary>
+                    <Color x:Key="txtlblcolor">Red</Color>
+                    <Style x:Key="lblformat" TargetType="Label">
+                        <Setter Property="FontSize" Value="20">
+                        </Setter>
+                        <Setter Property="FontAttributes" Value="Bold">
+                        </Setter>
+                    </Style>
+                    <Style x:Key="btnStyle" TargetType="Entry">
+                        <Setter Property="FontSize" Value="15">
+                        </Setter>
+                        <Setter Property="Keyboard" Value="Default">
+                        </Setter>
+                    </Style>
+                </ResourceDictionary>
+            </ContentView.Resources>
+            <Image Source="logo.jpg" HeightRequest="100" WidthRequest="80"/>
+            <Frame BackgroundColor="White" Margin ="20,20,20,20" Padding="10" CornerRadius="10">
+                <StackLayout VerticalOptions="Center">
+            <!--<Label Text="User Name" Style="{StaticResource lblformat}"></Label>-->
+                    <Entry x:Name="uid" Text="" Placeholder="User Address" Style="{StaticResource btnStyle}"></Entry>
+            <!--<Label Text="Enter Password" Style="{StaticResource lblformat}"></Label>-->
+                    <Entry x:Name="pwd" Text="" Placeholder="Password" IsPassword="True" Style="{StaticResource btnStyle}"></Entry>
+                    
+                    <!--Data Triggers-->
+                    <Button x:Name="btnlogin" Text="Login" BackgroundColor="OrangeRed" TextColor="White" BorderRadius="1" Clicked="login_Click">
+                        <Button.Triggers>
+                            <DataTrigger TargetType="Button" Binding="{Binding Source={x:Reference uid}, Path=Text.Length}" Value="0">
+                                <Setter Property="IsEnabled" Value="False"/>
+                                <Setter Property="BackgroundColor" Value="Gray"/>
+                            </DataTrigger>
+                        </Button.Triggers>
+                    </Button>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

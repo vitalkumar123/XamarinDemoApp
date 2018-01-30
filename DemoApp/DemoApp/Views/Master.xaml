@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:DemoApp"
+             x:Class="DemoApp.Master" MasterBehavior="Popover">
+
+    <MasterDetailPage.Master>
+        <ContentPage Padding="10" BackgroundColor="White"  Title="Master">
+            <ContentPage.Content>
+                <!--<StackLayout Margin="5,30,5,5">
+                    <Label Text="Master Page">
+                    </Label>
+                    <Button x:Name="b1" Text="Home" Clicked="OnHome_Click" BackgroundColor="Green">
+                    </Button>
+
+                    <Button x:Name="b2" Text="Bills and Payments" Clicked="OnBillandPayments_Click" BackgroundColor="Green"></Button>
+                    <Button x:Name="b3" Text="My Usage" Clicked="MyUsage_Click" BackgroundColor="Green"></Button>
+                </StackLayout>-->
+                <StackLayout Orientation="Vertical">
+                    <StackLayout BackgroundColor="White"
+                     HeightRequest="75">
+                        <Image Source="logo.png" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="80" HeightRequest="80"></Image>
+                    </StackLayout>
+                    <ListView x:Name="navigationList" RowHeight="60"
+                  SeparatorVisibility="None"
+                  BackgroundColor="#e8e8e8"
+                  ItemSelected="OnMenuItemSelected">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <!-- Main design for our menu items -->
+                                    <StackLayout VerticalOptions="FillAndExpand"
+                             Orientation="Horizontal"
+                             Padding="20,10,0,10"
+                             Spacing="20">
+                                        <Image Source="{Binding Icon}"
+                         WidthRequest="40"
+                         HeightRequest="40"
+                         VerticalOptions="Center" />
+                                        <Label Text="{Binding Title}"
+                         FontSize="Medium"
+                         VerticalOptions="Center"
+                         TextColor="Black"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                    <ListView x:Name="navigationList1" RowHeight="60"
+                  SeparatorVisibility="Default"
+                  BackgroundColor="#e8e8e8"
+                  ItemSelected="OnMenuItemSelected">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <!-- Main design for our menu items -->
+                                    <StackLayout VerticalOptions="FillAndExpand"
+                             Orientation="Horizontal"
+                             Padding="20,10,0,10"
+                             Spacing="20">
+                                        <Image Source="{Binding Icon}"
+                         WidthRequest="40"
+                         HeightRequest="40"
+                         VerticalOptions="Center" />
+                                        <Label Text="{Binding Title}"
+                         FontSize="Medium"
+                         VerticalOptions="Center"
+                         TextColor="Black"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </ContentPage.Content>
+        </ContentPage>
+    </MasterDetailPage.Master>
+
+
+
+    <MasterDetailPage.Detail>
+        <ContentPage Padding="10" BackgroundColor="White">
+            <ContentPage.Content>
+                <StackLayout Margin="5,30,5,5">
+                    <Label Text="Detail Page" ></Label>
+                </StackLayout>
+            </ContentPage.Content>
+        </ContentPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>
